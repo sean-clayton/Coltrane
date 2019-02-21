@@ -1,8 +1,8 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DebugWorldLevel : CTLevel
+public class IntroLevel : CTLevel
 {
     void Start()
     {
@@ -13,9 +13,6 @@ public class DebugWorldLevel : CTLevel
     public override void OnEnter()
     {
         base.OnEnter();
-
-        Debug.Log("Entered Debug World");
-
         if (timesEntered == 1)
         {
             OnFirstEnter();
@@ -24,6 +21,6 @@ public class DebugWorldLevel : CTLevel
 
     public override void OnFirstEnter()
     {
-        Debug.Log("Entered Debug World for the first time");
+        Debug.Log("Player just started the game. Doing cool intro stuff!");
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class CTLevel : MonoBehaviour
 {
-    [SerializeField] private string displayName;
+    [SerializeField] public string displayName;
     public int timesEntered;
     public Scene scene;
 

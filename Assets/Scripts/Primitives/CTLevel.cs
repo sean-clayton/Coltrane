@@ -25,9 +25,7 @@ public class CTLevel : MonoBehaviour
         timesEntered++;
     }
 
-    public virtual void OnFirstEnter() { }
-
-    public virtual void Init()
+    public void Init()
     {
         timesEntered = 0;
     }

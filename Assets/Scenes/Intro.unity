@@ -275,6 +275,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: IntroLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 3931039751740863566, guid: 2462ada18c146a94faa0821038a90cfd,
+        type: 3}
+      propertyPath: m_TagString
+      value: LevelData
+      objectReference: {fileID: 0}
     - target: {fileID: 4083380233796834320, guid: 2462ada18c146a94faa0821038a90cfd,
         type: 3}
       propertyPath: m_LocalPosition.x

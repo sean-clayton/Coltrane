@@ -275,6 +275,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DebugWorldLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 4222848986419724838, guid: f18d25bedccf0794e85a446628866515,
+        type: 3}
+      propertyPath: m_TagString
+      value: LevelData
+      objectReference: {fileID: 0}
     - target: {fileID: 4222848986419724832, guid: f18d25bedccf0794e85a446628866515,
         type: 3}
       propertyPath: m_LocalPosition.x

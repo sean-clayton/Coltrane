@@ -19,5 +19,6 @@ public class CTGameManager : MonoBehaviour
     // Do stuff for initializing the game here!
     private void InitGame()
     {
+        Debug.Log("CTGameManager started!");
     }
 }

@@ -3,8 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class CTLevel : MonoBehaviour
 {
-    [SerializeField] public string displayName;
-    public int timesEntered;
+    [SerializeField] public string displayName = "!! DEFAULT DISPLAY NAME !!";
+    public int timesEntered = 0;
     public Scene scene;
 
     void OnEnable()
@@ -25,10 +25,7 @@ public class CTLevel : MonoBehaviour
 
     public virtual void OnLeave() { }
 
-    public void Init()
-    {
-        timesEntered = 0;
-    }
+    public void Init() { }
 
     void OnDisable()
     {

@@ -20,5 +20,6 @@ public class CTGameManager : MonoBehaviour
     private void InitGame()
     {
         Debug.Log("CTGameManager started!");
+        CTSceneManager.instance.LoadScene("MainMenu");
     }
 }

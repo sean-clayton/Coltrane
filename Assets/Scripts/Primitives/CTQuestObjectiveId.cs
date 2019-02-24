@@ -1,11 +1,12 @@
 namespace CTQuestSystem
 {
-    public class CTQuestId
+    public class CTQuestObjectiveId
     {
         private string id;
 
-        public CTQuestId(string newId) => id = newId;
+        public CTQuestObjectiveId(string newId) => id = newId;
 
         public override string ToString() => id;
     }
 }
+

@@ -1,8 +1,12 @@
-public class CTQuestStepId
+namespace CTQuestSystem
 {
-    private string id;
+    public class CTQuestStepId
+    {
+        private string id;
 
-    public CTQuestStepId(string newId) => id = newId;
+        public CTQuestStepId(string newId) => id = newId;
 
-    public override string ToString() => id;
+        public override string ToString() => id;
+    }
 }
+

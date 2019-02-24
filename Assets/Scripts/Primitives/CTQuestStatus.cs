@@ -1,6 +1,10 @@
-public enum CTQuestStatus
+namespace CTQuestSystem
 {
-    Ready,
-    Completed,
-    Failed
+    public enum CTQuestStatus
+    {
+        Ready,
+        Completed,
+        Failed
+    }
 }
+

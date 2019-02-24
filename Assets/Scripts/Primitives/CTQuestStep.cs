@@ -1,5 +1,8 @@
-public class CTQuestStep
+namespace CTQuestSystem
 {
-    public CTQuestStepId id;
-    public CTQuestStepStatus status;
+    public class CTQuestStep
+    {
+        public CTQuestStepId id;
+        public CTQuestObjective[] objectives;
+    }
 }

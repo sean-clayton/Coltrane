@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class CTQuest
 {
-    private CTQuestStatus status;
-    private bool assigned;
+    public CTQuestStatus status { get; private set; } = CTQuestStatus.Ready;
+    public bool assigned { get; private set; } = false;
 
     public void Assign()
     {
         assigned = true;
-        status = CTQuestStatus.InProgress;
     }
 
     public void MarkFinished()

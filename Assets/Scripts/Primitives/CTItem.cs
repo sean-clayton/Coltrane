@@ -7,6 +7,6 @@ namespace CTItemSystem
         private CTItemId id;
         private string name = "!! DEFAULT NAME !!";
         private string description = "!! DEFAULT DESCRIPTION !!";
-        private CTItemSize size = new CTItemSize(1, 1);
+        private CTItemSize size = new CTItemSize();
     }
 }

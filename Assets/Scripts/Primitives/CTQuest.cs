@@ -2,17 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CTQuest : MonoBehaviour
+public class CTQuest
 {
-    // Start is called before the first frame update
-    void Start()
-    {
+    private CTQuestStatus status;
+    private bool assigned;
 
+    public void Assign()
+    {
+        assigned = true;
+        status = CTQuestStatus.InProgress;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Complete()
     {
+        status = CTQuestStatus.Finished;
+    }
 
+    public void Failed()
+    {
+        status = CTQuestStatus.Failed;
     }
 }

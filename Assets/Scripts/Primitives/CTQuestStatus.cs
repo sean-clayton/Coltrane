@@ -1,6 +1,6 @@
 public enum CTQuestStatus
 {
     Ready,
-    Finished,
+    Completed,
     Failed
 }

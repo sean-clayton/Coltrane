@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CTQuest : MonoBehaviour
 {
@@ -9,8 +7,9 @@ public class CTQuest : MonoBehaviour
     public bool assigned { get; private set; } = false;
     [SerializeField] public string title;
     [SerializeField] public string description;
+    [SerializeField] public CTQuestStep[] steps;
 
     public void Assign() => assigned = true;
-    public void MarkFinished() => status = CTQuestStatus.Finished;
+    public void MarkCompleted() => status = CTQuestStatus.Completed;
     public void MarkFailed() => status = CTQuestStatus.Failed;
 }

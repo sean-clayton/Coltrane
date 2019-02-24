@@ -10,4 +10,3 @@ namespace CTItemSystem
         private CTItemSize size = new CTItemSize(1, 1);
     }
 }
-

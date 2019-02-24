@@ -1,9 +1,23 @@
-public class CTGameManager
+using System;
+using UnityEngine;
+
+public class CTGameManager : MonoBehaviour
 {
-    public CTLevel currentLevel;
-    public CTPlayableCharacter player;
+    public static CTGameManager instance = null;
 
-    public void SaveGame() { }
+    void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);
 
-    public void LoadGame() { }
+        DontDestroyOnLoad(gameObject);
+        InitGame();
+    }
+
+    // Do stuff for initializing the game here!
+    private void InitGame()
+    {
+    }
 }

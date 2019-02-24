@@ -13,12 +13,12 @@ public class CTQuest
         status = CTQuestStatus.InProgress;
     }
 
-    public void Complete()
+    public void MarkFinished()
     {
         status = CTQuestStatus.Finished;
     }
 
-    public void Failed()
+    public void MarkFailed()
     {
         status = CTQuestStatus.Failed;
     }

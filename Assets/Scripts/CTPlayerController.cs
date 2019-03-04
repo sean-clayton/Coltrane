@@ -7,6 +7,7 @@ namespace Coletrane.Player
     public class CTPlayerController : MonoBehaviour
     {
         public float moveSpeed;
+        public Camera playerCamera;
         private Rigidbody playerRigidbody;
         private Vector3 moveInput;
         private Vector3 moveVelocity;
@@ -22,6 +23,7 @@ namespace Coletrane.Player
         void Update()
         {
             HandleMovement();
+            HandleLooking();
         }
 
         // FixedUpdate is called every fixed framerate frame, if the MonoBehaviour is enabled.
@@ -36,6 +38,19 @@ namespace Coletrane.Player
         {
             moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
             moveVelocity = moveInput * moveSpeed;
+        }
+
+        void HandleLooking()
+        {
+            Ray cameraRay = playerCamera.ScreenPointToRay(Input.mousePosition);
+            Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
+            float rayLength;
+
+            if (groundPlane.Raycast(cameraRay, out rayLength))
+            {
+                Vector3 pointToLook = cameraRay.GetPoint(rayLength);
+                Debug.DrawLine(cameraRay.origin, pointToLook, Color.red);
+            }
         }
 
         void HandlePhysics()

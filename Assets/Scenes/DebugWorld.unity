@@ -564,6 +564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  playerCamera: {fileID: 534669904}
 --- !u!54 &7968838270837162037
 Rigidbody:
   m_ObjectHideFlags: 0

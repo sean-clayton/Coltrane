@@ -5,13 +5,24 @@ using UnityEngine;
 namespace Coletrane.Player
 {
     [RequireComponent(typeof(Rigidbody))]
+    [RequireComponent(typeof(CTPlayerInputs))]
     public class CTPlayerController : MonoBehaviour
     {
-        public float moveSpeed;
         public Camera playerCamera;
+        public CTPlayerInputs input;
+
+        [Header("Movement Properties")]
+        public float moveSpeed = 15f;
+        public float rotationSpeed = 20f;
+
+        [Header("Rotation Properties")]
+        public Transform rotationTransform;
+        public float rotationLagSpeed = 3f;
+
         private Rigidbody playerRigidbody;
         private Vector3 moveInput;
         private Vector3 moveVelocity;
+        private Vector3 finalRotationLookDir;
         private float angle;
 
         #region Main Methods
@@ -19,6 +30,7 @@ namespace Coletrane.Player
         void Start()
         {
             playerRigidbody = GetComponent<Rigidbody>();
+            input = GetComponent<CTPlayerInputs>();
         }
 
         // Update is called once per frame
@@ -41,26 +53,18 @@ namespace Coletrane.Player
             if (!playerCamera) return;
 
             moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
-            angle = Mathf.Atan2(moveInput.x, moveInput.y);
-            angle = Mathf.Rad2Deg * angle;
-            angle += playerCamera.transform.eulerAngles.y;
             moveVelocity = moveInput * moveSpeed;
         }
 
         void HandleLooking()
         {
-            if (!playerCamera) return;
+            if (!rotationTransform) return;
 
-            Ray cameraRay = playerCamera.ScreenPointToRay(Input.mousePosition);
-            Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
-            float rayLength;
+            Vector3 playerLookDirection = input.cursorPosition - rotationTransform.position;
+            playerLookDirection.y = 0f;
 
-            if (groundPlane.Raycast(cameraRay, out rayLength))
-            {
-                Vector3 pointToLookAt = cameraRay.GetPoint(rayLength);
-
-                transform.LookAt(new Vector3(pointToLookAt.x, transform.position.y, pointToLookAt.z));
-            }
+            finalRotationLookDir = Vector3.Lerp(finalRotationLookDir, playerLookDirection, Time.deltaTime * rotationLagSpeed);
+            rotationTransform.rotation = Quaternion.LookRotation(finalRotationLookDir);
         }
 
         void HandlePhysics()

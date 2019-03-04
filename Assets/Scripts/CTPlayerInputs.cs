@@ -7,7 +7,7 @@ namespace Coletrane.Player
     public class CTPlayerInputs : MonoBehaviour
     {
         [Header("Input Properties")]
-        public Camera camera;
+        public Camera playerCamera;
 
         public Vector3 cursorPosition { get; private set; }
 
@@ -15,7 +15,7 @@ namespace Coletrane.Player
         // Update is called once per frame
         void Update()
         {
-            if (!camera) return;
+            if (!playerCamera) return;
 
             HandleInputs();
         }
@@ -33,7 +33,7 @@ namespace Coletrane.Player
         #region Helper Methods
         protected virtual void HandleInputs()
         {
-            Ray screenRay = camera.ScreenPointToRay(Input.mousePosition);
+            Ray screenRay = playerCamera.ScreenPointToRay(Input.mousePosition);
             Plane cursorPlane = new Plane(Vector3.up, Vector3.zero);
             float rayLength;
             if (cursorPlane.Raycast(screenRay, out rayLength))

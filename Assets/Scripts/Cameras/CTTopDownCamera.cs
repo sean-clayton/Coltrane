@@ -6,11 +6,11 @@ namespace Coletrane.Cameras
 {
     public class CTTopDownCamera : MonoBehaviour
     {
-        [SerializeField] private Transform target;
-        [SerializeField] private float height = 10f;
-        [SerializeField] private float distance = 20f;
-        [SerializeField] private float angle = 45f;
-        [SerializeField] private float smoothness = 0.5f;
+        [SerializeField] public Transform target;
+        [SerializeField] public float height = 10f;
+        [SerializeField] public float distance = 20f;
+        [SerializeField] public float angle = 45f;
+        [SerializeField] public float smoothness = 0.5f;
 
         private Vector3 refVelocity;
 
@@ -48,6 +48,17 @@ namespace Coletrane.Cameras
 
             transform.position = Vector3.SmoothDamp(transform.position, finalPosition, ref refVelocity, smoothness);
             transform.LookAt(flatTargetPosition);
+        }
+
+        void OnDrawGizmos()
+        {
+            Gizmos.color = new Color(0f, 1f, 0f, 0.25f);
+            Gizmos.DrawSphere(transform.position, 1.5f);
+            if (target)
+            {
+                Gizmos.DrawLine(transform.position, target.position);
+                Gizmos.DrawSphere(target.position, 1.5f);
+            }
         }
         #endregion
     }

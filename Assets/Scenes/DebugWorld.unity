@@ -464,12 +464,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 534669902}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 387855f948af8f542aac6c587c9b10ce, type: 3}
+  m_Script: {fileID: 11500000, guid: a5de2e76bf523ea4f9802ba8caf8be20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 3942613027619211859}
-  height: 15
-  distance: 15
+  height: 20
+  distance: 20
+  angle: 45
+  smoothness: 0.5
 --- !u!114 &534669907
 MonoBehaviour:
   m_ObjectHideFlags: 0

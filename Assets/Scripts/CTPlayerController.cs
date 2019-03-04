@@ -8,8 +8,7 @@ namespace Coletrane.Player
     [RequireComponent(typeof(CTPlayerInputs))]
     public class CTPlayerController : MonoBehaviour
     {
-        public Camera playerCamera;
-        public CTPlayerInputs input;
+        private CTPlayerInputs input;
 
         [Header("Movement Properties")]
         public float moveSpeed = 15f;
@@ -17,7 +16,7 @@ namespace Coletrane.Player
 
         [Header("Rotation Properties")]
         public Transform rotationTransform;
-        public float rotationLagSpeed = 3f;
+        public float rotationLagSpeed = 10f;
 
         private Rigidbody playerRigidbody;
         private Vector3 moveInput;
@@ -50,8 +49,6 @@ namespace Coletrane.Player
         #region Helper Methods
         void HandleMovement()
         {
-            if (!playerCamera) return;
-
             moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
             moveVelocity = moveInput * moveSpeed;
         }

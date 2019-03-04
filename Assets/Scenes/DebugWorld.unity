@@ -1049,12 +1049,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2389dd3db0a38942b9b8792ec0b26c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCamera: {fileID: 534669904}
-  input: {fileID: 0}
-  moveSpeed: 10
+  moveSpeed: 15
   rotationSpeed: 20
-  rotationTransform: {fileID: 3942613027619211859}
-  rotationLagSpeed: 5
+  rotationTransform: {fileID: 0}
+  rotationLagSpeed: 10
 --- !u!54 &7968838270837162037
 Rigidbody:
   m_ObjectHideFlags: 0

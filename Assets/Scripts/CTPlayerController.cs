@@ -49,7 +49,6 @@ namespace Coletrane.Player
             if (groundPlane.Raycast(cameraRay, out rayLength))
             {
                 Vector3 pointToLookAt = cameraRay.GetPoint(rayLength);
-                Debug.DrawLine(cameraRay.origin, pointToLookAt, Color.red);
 
                 transform.LookAt(new Vector3(pointToLookAt.x, transform.position.y, pointToLookAt.z));
             }

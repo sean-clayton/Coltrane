@@ -60,6 +60,9 @@ namespace Coletrane.Player
             playerLookDirection.y = 0f;
 
             finalRotationLookDir = Vector3.Lerp(finalRotationLookDir, playerLookDirection, Time.deltaTime * rotationLagSpeed);
+
+            Debug.DrawRay(transform.position, transform.forward * 10f, Color.red, 0f, true);
+
             rotationTransform.rotation = Quaternion.LookRotation(finalRotationLookDir);
         }
 

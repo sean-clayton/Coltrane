@@ -543,7 +543,23 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5875212402224163942, guid: 67951218b173d734d9e1563ea19b9301,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5875212402224163942, guid: 67951218b173d734d9e1563ea19b9301,
+        type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5764439940965806019, guid: 67951218b173d734d9e1563ea19b9301,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5764439940965806019, guid: 67951218b173d734d9e1563ea19b9301, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 67951218b173d734d9e1563ea19b9301, type: 3}
 --- !u!1 &7968838270837162035 stripped
 GameObject:

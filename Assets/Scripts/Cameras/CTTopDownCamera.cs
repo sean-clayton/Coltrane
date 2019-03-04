@@ -37,7 +37,7 @@ namespace Coletrane.Cameras
             Debug.DrawLine(target.position, finalPosition, Color.blue);
 
             transform.position = finalPosition;
-            transform.LookAt(target.position);
+            transform.LookAt(target.position - new Vector3(0f, 0f, height / 7.5f));
         }
         #endregion
     }

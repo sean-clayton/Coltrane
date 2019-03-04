@@ -12,7 +12,6 @@ namespace Coletrane.Player
 
         [Header("Movement Properties")]
         public float moveSpeed = 15f;
-        public float rotationSpeed = 20f;
 
         [Header("Rotation Properties")]
         public Transform rotationTransform;

@@ -10,7 +10,6 @@ namespace Coletrane.Player
         public Camera camera;
 
         public Vector3 cursorPosition { get; private set; }
-        public Vector3 cursorNormal { get; private set; }
 
         #region Main Methods
         // Update is called once per frame
@@ -27,7 +26,7 @@ namespace Coletrane.Player
         void OnDrawGizmos()
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawSphere(cursorPosition, 0.5f);
+            Gizmos.DrawSphere(new Vector3(cursorPosition.x, cursorPosition.y - 1f, cursorPosition.z), 0.5f);
         }
         #endregion
 
@@ -35,11 +34,12 @@ namespace Coletrane.Player
         protected virtual void HandleInputs()
         {
             Ray screenRay = camera.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(screenRay, out hit))
+            Plane cursorPlane = new Plane(Vector3.up, Vector3.zero);
+            float rayLength;
+            if (cursorPlane.Raycast(screenRay, out rayLength))
             {
-                cursorPosition = hit.point;
-                cursorNormal = hit.normal;
+                Vector3 pointToLookAt = screenRay.GetPoint(rayLength);
+                cursorPosition = new Vector3(pointToLookAt.x, transform.position.y, pointToLookAt.z);
             }
         }
         #endregion

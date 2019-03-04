@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Coletrane.Player
 {
+    [RequireComponent(typeof(Rigidbody))]
     public class CTPlayerController : MonoBehaviour
     {
         public float moveSpeed;
@@ -11,6 +12,7 @@ namespace Coletrane.Player
         private Rigidbody playerRigidbody;
         private Vector3 moveInput;
         private Vector3 moveVelocity;
+        private float angle;
 
         #region Main Methods
         // Start is called before the first frame update
@@ -23,12 +25,12 @@ namespace Coletrane.Player
         void Update()
         {
             HandleMovement();
-            HandleLooking();
         }
 
         // FixedUpdate is called every fixed framerate frame, if the MonoBehaviour is enabled.
         void FixedUpdate()
         {
+            HandleLooking();
             HandlePhysics();
         }
         #endregion
@@ -36,12 +38,19 @@ namespace Coletrane.Player
         #region Helper Methods
         void HandleMovement()
         {
+            if (!playerCamera) return;
+
             moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
+            angle = Mathf.Atan2(moveInput.x, moveInput.y);
+            angle = Mathf.Rad2Deg * angle;
+            angle += playerCamera.transform.eulerAngles.y;
             moveVelocity = moveInput * moveSpeed;
         }
 
         void HandleLooking()
         {
+            if (!playerCamera) return;
+
             Ray cameraRay = playerCamera.ScreenPointToRay(Input.mousePosition);
             Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
             float rayLength;
@@ -56,6 +65,8 @@ namespace Coletrane.Player
 
         void HandlePhysics()
         {
+            if (!playerRigidbody) return;
+
             playerRigidbody.velocity = moveVelocity;
         }
         #endregion

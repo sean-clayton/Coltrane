@@ -48,8 +48,10 @@ namespace Coletrane.Player
         #region Helper Methods
         void HandleMovement()
         {
+            if (!input.playerCamera.GetComponent<Coletrane.Cameras.CTTopDownCamera>()) return;
+
             moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
-            moveVelocity = moveInput * moveSpeed;
+            moveVelocity = Quaternion.Euler(0f, (input.playerCamera.GetComponent<Coletrane.Cameras.CTTopDownCamera>().angle), 0f) * moveInput * moveSpeed;
         }
 
         void HandleLooking()

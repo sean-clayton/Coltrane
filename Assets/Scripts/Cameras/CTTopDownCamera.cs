@@ -10,6 +10,7 @@ namespace Coletrane.Cameras
         [SerializeField] public float height = 10f;
         [SerializeField] public float distance = 20f;
         [SerializeField] public float angle = 45f;
+        [SerializeField] public bool useSmoothing = false;
         [SerializeField] public float smoothness = 0.5f;
 
         private Vector3 refVelocity;
@@ -46,7 +47,8 @@ namespace Coletrane.Cameras
             Vector3 finalPosition = flatTargetPosition + rotatedVector;
             Debug.DrawLine(target.position, finalPosition, Color.blue);
 
-            transform.position = Vector3.SmoothDamp(transform.position, finalPosition, ref refVelocity, smoothness);
+            if (useSmoothing) transform.position = Vector3.SmoothDamp(transform.position, finalPosition, ref refVelocity, smoothness);
+            else transform.position = finalPosition;
             transform.LookAt(flatTargetPosition);
         }
 
